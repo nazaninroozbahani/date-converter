@@ -1,7 +1,11 @@
-import React from 'react'
-import { ConvertResultProps } from '../../types.model';
 import moment from "moment-jalaali";
-moment.loadPersian({ dialect: 'persian-modern' })
+import React from 'react';
+import { ConvertResultProps } from '../../types.model';
+moment.loadPersian(
+    { 
+        dialect: 'persian-modern', 
+        // usePersianDigits: true 
+    });
 
 
 const SolarResult: React.FC<ConvertResultProps> = (props) => {
@@ -10,10 +14,11 @@ const SolarResult: React.FC<ConvertResultProps> = (props) => {
 
     const isValidDate = () => {
         if (props.convertType === 1)
-            return moment(inputDate, 'jYYYY/jM/jD').isValid();
-        const solar = moment(inputDate, 'YYYY/M/D').format('jYYYY/jM/jD');
-        return moment(solar, 'jYYYY/jM/jD').isValid();
+            return moment(inputDate, 'jYYYY/jMM/jDD').isValid();
+        const solar = moment(inputDate, '<YYYY />MM/DD').format('jYYYY/jMM/jDD');
+        return moment(solar, 'jYYYY/jMM/jDD').isValid();
     };
+
 
     return (
         <div className="col-sm-6"

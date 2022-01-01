@@ -9,9 +9,9 @@ const GregorianResult: React.FC<ConvertResultProps> = (props) => {
 
     const isValidDate = () => {
         if (props.convertType === 2)
-            return moment(inputDate, 'YYYY/M/D').isValid();
-        const solar = moment(inputDate, 'jYYYY/jM/jD' ).format('YYYY/M/D');
-        return moment(solar, 'YYYY/M/D').isValid();
+            return moment(inputDate, 'YYYY/MM/DD').isValid();
+        const solar = moment(inputDate, 'jYYYY/jMM/jDD' ).format('YYYY/MM/DD');
+        return moment(solar, 'YYYY/MM/DD').isValid();
     };
 
     return (
